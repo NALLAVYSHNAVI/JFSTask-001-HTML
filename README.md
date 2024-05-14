@@ -182,81 +182,65 @@ Cansandra
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID Verification Form</title>
 </head>
 <body>
-    <div class="container">
-        <form>
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="captcha">Captcha:</label>
-                <!-- Add your captcha here -->
-                <input type="text" id="captcha" name="captcha" required>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
+  <h1>ID Verification</h1>
+  <form action="/submit" method="post">
+    <p>Please select your ID type:</p>
+    <input type="radio" id="aadhaar" name="id_type" value="aadhaar" checked>
+    <label for="aadhaar">Aadhaar Card</label>
+    <br>
+    <input type="radio" id="pan" name="id_type" value="pan">
+    <label for="pan">PAN Card</label>
+    <br><br>
+    <div id="id_number_container">
+      <label for="id_number">ID Number:</label>
+      <input type="text" id="id_number" name="id_number" required>
     </div>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const aadhaarRadio = document.getElementById('aadhaar');
+    const panRadio = document.getElementById('pan');
+    const idNumberContainer = document.getElementById('id_number_container');
+    const idNumberLabel = idNumberContainer.querySelector('label');
+
+    aadhaarRadio.addEventListener('change', () => {
+      idNumberLabel.textContent = 'Aadhaar Number:';
+    });
+
+    panRadio.addEventListener('change', () => {
+      idNumberLabel.textContent = 'PAN Number:';
+    });
+  </script>
 </body>
 </html>
-CSS
-.container {
-    width: 400px;
-    margin: 0 auto;
-}
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-textarea {
-    resize: vertical;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
+8.Use the table tag to design given image Click here.
+<table>
+  <tr>
+    <th>Customer</th>
+    <th>Items</th>
+    <th>Payments</th>
+  </tr>
+  <tr>
+    <td>Customer Name</td>
+    <td>
+      Item1 (5 at $400.00 each) <br>
+      Item2 (10 at $200.00 each) <br>
+      Item3 (2 at $500.00 each) <br>
+    </td>
+    <td>
+      $3,000.00 on 12 Sep 2018<br>
+      $2,000.00 on 18 Sep 2018
+    </td>
+  </tr>
+</table>
 9.Write HTML input tags snippet to show default values for all Form elements.
 <!DOCTYPE html>
 <html lang="en">
